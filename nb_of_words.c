@@ -10,7 +10,7 @@
 int nb_of_words(char *str, const char *delim)
 {
 	int nb_of_word = 0;
-	char *strdu = strdup(str), *token = NULL;
+	char *strdu = _strdup(str), *token = NULL;
 
 	if (!str)
 		return (0);

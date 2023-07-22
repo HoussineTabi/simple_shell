@@ -9,7 +9,7 @@ void _isexit(char **ar)
 {
 	int exit_value;
 
-	if (!strcmp(ar[0], "exit"))
+	if (!_strcmp(ar[0], "exit"))
 	{
 		if (_isdigit(ar[1]))
 		{

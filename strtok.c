@@ -17,11 +17,11 @@ char *_strtok(char *str, char *sepa)
 		beginstr = str;
 	if (beginstr == NULL || *beginstr == '\0')
 		return (NULL);
-	if (sepa == NULL || strlen(sepa) == 0)
+	if (sepa == NULL || _strlen(sepa) == 0)
 		return (str);
 	if (str)
 	{
-	len = strlen(str);
+	len = _strlen(str);
 	while (*sepa != '\0')
 	{
 		_find_char(str, *sepa, len);

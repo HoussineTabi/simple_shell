@@ -10,12 +10,12 @@ void _change_dir(char *path)
 
 	if (path != NULL)
 	{
-		newpath = strdup(strcat(getcwd(NULL, 1024), strdup(path)));
-		printf("%s\n", newpath);
+		newpath = _strdup(strcat(getcwd(NULL, 1024), _strdup(path)));
+		write(1, "working direc", sizeof("workding direc"));
 		if (chdir(path) != -1)
-			printf("the working directory is changed successfuly \n");
+			write(1, "the dir is changed\n", sizeof("the dir is changed\n"));
 		else
-			printf("the path isn't correct\n");
+			write(1, "the path isn't correct\n", sizeof("the path isn't correct\n"));
 		free(newpath);
 	}
 }

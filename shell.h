@@ -11,7 +11,9 @@
 #include <stdbool.h>
 #include <signal.h>
 #include <sys/stat.h>
-
+int _strcmp(char *, char *);
+char *_strdup(char *);
+int _strlen(char *);
 extern char **environ;
 char *_get_command(void);
 int _execmd(char **, char **);
