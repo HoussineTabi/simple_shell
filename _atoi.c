@@ -6,7 +6,7 @@
  * Return: the value of string in success and 0 otherwise
  */
 
-int _atoi(const char *str)
+int _atoi(char *str)
 {
 	int str_enteger_value = 0, ten = 1;
 	int count = 0;

@@ -31,7 +31,7 @@ void fork_child_parent(char *line, char **ar, char **env);
 int nb_of_words(char *str, const char *delim);
 char *make_path(char *, char *);
 int _isdigit(char *str);
-int _atoi(const char *);
-int _unset(char *, char ***)
+int _atoi(char *);
+int _unset(char *, char ***);
 
 #endif /* SHELL_H */
