@@ -29,7 +29,7 @@ int _atoi(const char *str)
 			break;
 	}
 	if (!count)
-		return (0);	
+		return (0);
 	count--;
 	while (count >= 0)
 	{

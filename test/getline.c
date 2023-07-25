@@ -29,18 +29,16 @@ size_t _getline(char **line, size_t *n, FILE *stream)
 			break;
 		count++;
 	}
-	if (fclose(stream) != 0)
-		return (-1);
 	*line = malloc(sizeof(char) * (count));
 	if (line == NULL)
 		return (-1);
 	*n = count;
 	count = 0;
-	while (count < *n)
+	while (count <= *n)
 	{
 		(*line)[count] = buffer[count];
 		count++;
 	}
-	(*line)[count - 1] = '\0';
+	(*line)[count] = '\0';
 	return (*n);
 }

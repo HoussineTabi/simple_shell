@@ -32,5 +32,6 @@ int nb_of_words(char *str, const char *delim);
 char *make_path(char *, char *);
 int _isdigit(char *str);
 int _atoi(const char *);
+int _unset(char *, char ***)
 
 #endif /* SHELL_H */
