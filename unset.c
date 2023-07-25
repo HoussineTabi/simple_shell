@@ -17,9 +17,9 @@ int _unset(char *name, char ***env)
 		return (1);
 	while ((*env)[count])
 	{
-		name_value = strdup((*env)[count]);
+		name_value = _strdup((*env)[count]);
 		token = strtok(name_value, "=");
-		if (!strcmp(name, token))
+		if (!_strcmp(name, token))
 		{
 			free(name_value);
 			break;
