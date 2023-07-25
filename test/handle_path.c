@@ -16,15 +16,15 @@ char *handle_path(char *path, char **env)
 
 	while (env[count])
 	{
-		ptr = strdup(env[count]);
+		ptr = _strdup(env[count]);
 		token = strtok(ptr, "=");
-		if (strcmp(token, "PATH") != 0)
+		if (_strcmp(token, "PATH") != 0)
 		{
 			free(ptr);
 			count++;
 			continue;
 		}
-		token = strdup(strtok(NULL, "="));
+		token = _strdup(strtok(NULL, "="));
 		ar = str_splite_to_words(token, ":");
 		while (ar[countpath])
 		{
@@ -90,7 +90,7 @@ char *make_path(char *path, char *file_name)
 
 	if (file_name == NULL || path == NULL)
 		return (NULL);
-	full_path = malloc(sizeof(char) * (strlen(path) + strlen(file_name) + 2));
+	full_path = malloc(sizeof(char) * (_strlen(path) + _strlen(file_name) + 2));
 	while (path[count] != '\0')
 	{
 		full_path[count] = path[count];

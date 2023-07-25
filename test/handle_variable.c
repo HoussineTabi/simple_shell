@@ -16,9 +16,9 @@ char *_is_a_variable(char *str)
 	while (env[count])
 	{
 		token = strtok(env[count], "=");
-		if (strcmp(str, token) == 0)
+		if (_strcmp(str, token) == 0)
 		{
-			str = strdup(strtok(NULL, "="));
+			str = _strdup(strtok(NULL, "="));
 			return (str);
 		}
 		count++;

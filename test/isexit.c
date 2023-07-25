@@ -7,14 +7,16 @@
  */
 void _isexit(char **ar)
 {
-	int exit_value;
+	int exit_value = 0;
 
-	if (!strcmp(ar[0], "exit"))
+	if (!_strcmp(ar[0], "exit"))
 	{
 		if (_isdigit(ar[1]))
 		{
-			exit_value = atoi(ar[1]);
+			exit_value = _atoi(ar[1]);
 			_freearg(ar);
+			if (exit_value < 0)
+				exit_value = 0;
 			exit(exit_value);
 		}
 		_freearg(ar);
@@ -30,6 +32,10 @@ int _isdigit(char *str)
 {
 	if (!str)
 		return (0);
+	while (*str == ' ')
+		str++;
+	if (*str == '-')
+		str++;
 	while (*str)
 	{
 		if (*str > 57 || *str < 48)
