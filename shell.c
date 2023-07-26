@@ -37,12 +37,14 @@ int main(int ac, char **argv, char **env)
 		{
 			variable = ar[0];
 			ar[0] = handle_path(variable, env);
-			free(variable);
 			if (!ar[0])
 			{
-				_freearg(ar);
 				write(2, argv[0], _strlen(argv[0]));
-				perror(": 1");
+				write(2, ": 1: ",_strlen(": 1: "));
+				write(2, variable, _strlen((variable)));
+				write(2, ": not found\n", _strlen(": not found\n"));
+				_freearg(ar);
+
 				continue;
 			}
 		}
