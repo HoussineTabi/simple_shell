@@ -6,5 +6,5 @@
 
 void prompt(void)
 {
-	write(1, "($) ", _strlen("($) "));
+	write(1, "($)", _strlen("($)"));
 }
