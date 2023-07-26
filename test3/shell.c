@@ -41,7 +41,7 @@ int main(int ac, char **argv, char **env)
 			if (!ar[0])
 			{
 				_freearg(ar);
-				perror("./hsh");
+				perror("./shell");
 				continue;
 			}
 		}
@@ -74,7 +74,7 @@ void fork_child_parent(char *line, char **ar, char **env)
 		i = _execmd(ar, env);
 		if (i == -1)
 		{
-			perror("./hsh");
+			perror("./shell");
 			exit(0);
 		}
 	}

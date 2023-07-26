@@ -29,16 +29,36 @@ int main(int ac, char **argv, char **env)
 		ar = str_splite_to_words(line, " \n");
 		if (!ar)
 			continue;
+<<<<<<< HEAD:shell.c
+		free(line);
+		line = NULL;
+		if (!(stat(ar[0], &buffer) == 0))
+		{
+<<<<<<< HEAD
+=======
+			variable = ar[0];
+			ar[0] = handle_path(variable, env);
+>>>>>>> 693c81c9ebeb4d67fe9f4a26960f5701fc23ac45
+=======
 		_isexit(ar, line);
 		if (!(stat(ar[0], &buffer) == 0))
 		{
 			copy_ar0 = ar[0];
 			ar[0] = handle_path(line, env);
+>>>>>>> 2a3051206b28ba3b77090e72a7fc498558a47c5c:test4/shell.c
 			if (!ar[0])
 			{
 				_perror(argv[0], copy_ar0);
 				_freearg(ar);
+<<<<<<< HEAD:shell.c
+<<<<<<< HEAD
+				perror("./shell");
+=======
+
+>>>>>>> 693c81c9ebeb4d67fe9f4a26960f5701fc23ac45
+=======
 				free(copy_ar0);
+>>>>>>> 2a3051206b28ba3b77090e72a7fc498558a47c5c:test4/shell.c
 				continue;
 			}
 			free(copy_ar0);
@@ -87,7 +107,7 @@ void fork_child_parent(char *line, char **ar, char **env)
 		i = _execmd(ar, env);
 		if (i == -1)
 		{
-			perror("./hsh");
+			perror("./shell");
 			exit(0);
 		}
 	}
