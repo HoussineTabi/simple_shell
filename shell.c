@@ -42,7 +42,6 @@ int main(int ac, char **argv, char **env)
 			{
 				_perror(argv[0], variable);
 				_freearg(ar);
-
 				continue;
 			}
 		}
