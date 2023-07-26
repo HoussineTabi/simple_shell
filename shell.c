@@ -12,7 +12,6 @@ int main(int ac, char **argv, char **env)
 	char *line = NULL, **ar = NULL;
 	size_t n;
 	bool from_pipe = false;
-	char *variable = NULL;
 	struct stat buffer;
 
 	(void) argv;
@@ -30,14 +29,10 @@ int main(int ac, char **argv, char **env)
 		ar = str_splite_to_words(line, " \n");
 		if (!ar)
 			continue;
-		_isexit(ar, line);
 		free(line);
 		line = NULL;
 		if (!(stat(ar[0], &buffer) == 0))
 		{
-			variable = ar[0];
-			ar[0] = handle_path(variable, env);
-			free(variable);
 			if (!ar[0])
 			{
 				_freearg(ar);
