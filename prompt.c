@@ -6,5 +6,5 @@
 
 void prompt(void)
 {
-	write(1, "#cisfun$ ", _strlen("#cisfun$ "));
+	write(1, "($) ", _strlen("($) "));
 }
