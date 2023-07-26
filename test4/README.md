@@ -1,6 +1,6 @@
 # 0x16. C - Simple Shell
  **By Spencer Cheng, featuring Julien Barbier**
-Project to be done in teams of 2 people (your team: ELHOUSSINE TAIBI ALAOUI, ELHASSAN TAIBI ALAOUI)
+Project to be done in teams of 2 people (our team ElHASSAN TAIBI ALAOUI AND ELHOUSSINE TAIBI ALAOUI)
 
 # Learning Objectives
 At the end of this project, you are expected to be able to explain to anyone, without the help of Google:
@@ -95,7 +95,7 @@ write (man 2 write)
 # files
 - README.md - description about the project repo
 - man_1_simple_shell - is the man page for the shell we are going to write.
-- AUTHORS - file at the  root of your repository, listing all individuals having contributed content to the repository. 
+- AUTHORS - file at the  root of your repository, listing all individuals having contributed content to the repository.
 - main.h - is the header file which contains the standared header file and prototype of o function used in the program.
 - main.c - initialize the program with infinite loop by call the prompt function
 - prompt.c - it use getline system call to read the input from the user and run infinite loop with fork to keep prompt going.
