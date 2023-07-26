@@ -6,11 +6,11 @@
  */
 void _change_dir(char *path)
 {
-	char *newpath;
+	char *newpath = NULL;
 
 	if (path != NULL)
 	{
-		newpath = _strdup(strcat(getcwd(NULL, 1024), _strdup(path)));
+		newpath = NULL;
 		write(1, "working direc", sizeof("workding direc"));
 		if (chdir(path) != -1)
 			write(1, "the dir is changed\n", sizeof("the dir is changed\n"));
