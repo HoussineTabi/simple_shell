@@ -37,6 +37,7 @@ int main(int ac, char **argv, char **env)
 		{
 			variable = ar[0];
 			ar[0] = handle_path(variable, env);
+			free(variable);
 			if (!ar[0])
 			{
 				_perror(argv[0], variable);
