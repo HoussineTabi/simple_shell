@@ -62,7 +62,7 @@ void _perror(char *str1, char *str2)
 	write(2, str1, _strlen(str1));
 	write(2, ": 1: ", _strlen(": 1: "));
 	write(2, str2, _strlen(str2));
-	write(2, ": not found\n", _strlen(":not found\n"));
+	write(2, ": not found\n", _strlen(": not found\n"));
 }
 
 /**
