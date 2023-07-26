@@ -18,8 +18,8 @@ int _myexit(info_t *info)
 		{
 			info->status = 2;
 			print_error(info, "Illegal number: ");
-			_eputs(info->argv[1]);
-			_eputchar('\n');
+			_Eputs(info->argv[1]);
+			_Eputchar('\n');
 			return (1);
 		}
 		info->err_num = _erratoi(info->argv[1]);
