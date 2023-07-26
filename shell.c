@@ -41,7 +41,8 @@ int main(int ac, char **argv, char **env)
 			if (!ar[0])
 			{
 				_freearg(ar);
-				perror("./hsh");
+				write(2, argv[0], _strlen(argv[0]));
+				perror(": 1");
 				continue;
 			}
 		}

@@ -11,7 +11,6 @@
 int _execmd(char **ar, char **env)
 {
 	int i = 0;
-
 	i = execve(ar[0], ar, env);
 	return (i);
 
