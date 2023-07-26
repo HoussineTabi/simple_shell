@@ -26,15 +26,18 @@ char *handle_path(char *path, char **env)
 		}
 		token = _strdup(strtok(NULL, "="));
 		ar = str_splite_to_words(token, ":");
+		free(token);
 		while (ar[countpath])
 		{
 			full_path = make_path(ar[countpath], path);
 			if (!full_path)
+			{
+				free(ptr);
 				return (NULL);
+			}
 			if (stat(full_path, &buffer) == 0)
 			{
 				free(ptr);
-				free(token);
 				_freearg(ar);
 				return (full_path);
 			}
@@ -42,7 +45,6 @@ char *handle_path(char *path, char **env)
 			countpath++;
 		}
 		free(ptr);
-		free(token);
 		_freearg(ar);
 		break;
 	}
@@ -64,13 +66,13 @@ char **str_splite_to_words(char *str, const char *delim)
 	if (!count)
 		return (NULL);
 	count = 0;
-	words = malloc(sizeof(char *) * nb_of_words(str, delim) + 1);
+	words = malloc(sizeof(char *) * (nb_of_words(str, delim) + 1));
 	if (!words)
 		return (NULL);
 	token = strtok(str, delim);
 	while (token)
 	{
-		words[count] = token;
+		words[count] = _strdup(token);
 		token = strtok(NULL, delim);
 		count++;
 	}

@@ -19,7 +19,7 @@ char *_get_command(void);
 int _execmd(char **, char **);
 void prompt(void);
 void _freearg(char **);
-void _isexit(char **);
+void _isexit(char **, char *);
 size_t _getline(char **, size_t *, FILE *);
 int _find_char(char *str, char c, size_t size);
 char *_strtok(char *str, char *sepa);

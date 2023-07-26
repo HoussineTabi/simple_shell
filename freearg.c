@@ -12,13 +12,10 @@ void _freearg(char **ar)
 	if (ar != NULL)
 	{
 		while (ar[count])
-			count++;
-		while (ar[count] && count >= 0)
 		{
-		free(ar[count]);
-		count--;
+			free(ar[count]);
+			count++;
 		}
-		if (ar)
-			free(ar);
+		free(ar);
 	}
 }

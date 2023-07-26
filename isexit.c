@@ -5,12 +5,13 @@
  *
  * @ar: the command
  */
-void _isexit(char **ar)
+void _isexit(char **ar, char *line)
 {
 	int exit_value = 0;
 
 	if (!_strcmp(ar[0], "exit"))
 	{
+		free(line);
 		if (_isdigit(ar[1]))
 		{
 			exit_value = _atoi(ar[1]);

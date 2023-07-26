@@ -29,18 +29,20 @@ int main(int ac, char **argv, char **env)
 		ar = str_splite_to_words(line, " \n");
 		if (!ar)
 			continue;
-		_isexit(ar);
+		_isexit(ar, line);
 		if (!(stat(ar[0], &buffer) == 0))
 		{
 			ar[0] = handle_path(ar[0], env);
 			if (!ar[0])
 			{
 				_freearg(ar);
+				free(line);
 				perror("./hsh");
 				continue;
 			}
 		}
 		fork_child_parent(line, ar, env);
+		free(line);
 	}
 	free(line);
 	exit(0);
