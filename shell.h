@@ -12,6 +12,7 @@
 #include <signal.h>
 #include <sys/stat.h>
 int _strcmp(char *, char *);
+void _perror(char *, char *);
 char *_strdup(char *);
 int _strlen(char *);
 extern char **environ;

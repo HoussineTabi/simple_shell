@@ -12,6 +12,7 @@ int main(int ac, char **argv, char **env)
 	char *line = NULL, **ar = NULL;
 	size_t n;
 	bool from_pipe = false;
+	char *variable = NULL;
 	struct stat buffer;
 
 	(void) argv;
@@ -29,10 +30,14 @@ int main(int ac, char **argv, char **env)
 		ar = str_splite_to_words(line, " \n");
 		if (!ar)
 			continue;
-		_isexit(ar);
+		_isexit(ar, line);
+		free(line);
+		line = NULL;
 		if (!(stat(ar[0], &buffer) == 0))
 		{
-			ar[0] = handle_path(ar[0], env);
+			variable = ar[0];
+			ar[0] = handle_path(variable, env);
+			free(variable);
 			if (!ar[0])
 			{
 				_freearg(ar);
@@ -60,7 +65,10 @@ void fork_child_parent(char *line, char **ar, char **env)
 	(void)line;
 	pid = fork();
 	if (pid == -1)
+	{
+		_freearg(ar);
 		exit(0);
+	}
 	else if (pid == 0)
 	{
 		i = _execmd(ar, env);
@@ -73,4 +81,5 @@ void fork_child_parent(char *line, char **ar, char **env)
 	else
 		wait(NULL);
 	_freearg(ar);
+	ar = NULL;
 }

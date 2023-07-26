@@ -4,6 +4,7 @@
  * _isexit - cuts the execution of the process
  *
  * @ar: the command
+ * @line: the second parameter
  */
 void _isexit(char **ar, char *line)
 {
