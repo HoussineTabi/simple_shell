@@ -6,7 +6,7 @@
  */
 void _change_dir(char *path)
 {
-	char *newpath;
+	char *newpath = NULL;
 
 	if (path != NULL)
 	{

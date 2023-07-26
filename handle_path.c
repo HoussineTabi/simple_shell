@@ -41,7 +41,6 @@ char *handle_path(char *path, char **env)
 				_freearg(ar);
 				return (full_path);
 			}
-			free(full_path);
 			countpath++;
 		}
 		free(ptr);
@@ -88,7 +87,7 @@ char **str_splite_to_words(char *str, const char *delim)
 char *make_path(char *path, char *file_name)
 {
 	char *full_path = NULL;
-	int count = 0, i;
+	int count = 0, i = 0;
 
 	if (file_name == NULL || path == NULL)
 		return (NULL);

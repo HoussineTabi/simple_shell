@@ -10,12 +10,11 @@
 int main(int ac, char **argv, char **env)
 {
 	char *line = NULL, **ar = NULL;
-	size_t n;
+	size_t n = 0;
+	char *copy_ar0 = NULL;
 	bool from_pipe = false;
-	char *variable = NULL;
 	struct stat buffer;
 
-	(void) argv;
 	while (ac)
 	{
 		if (isatty(STDIN_FILENO) != 0)
@@ -31,19 +30,18 @@ int main(int ac, char **argv, char **env)
 		if (!ar)
 			continue;
 		_isexit(ar, line);
-		free(line);
-		line = NULL;
 		if (!(stat(ar[0], &buffer) == 0))
 		{
-			variable = ar[0];
-			ar[0] = handle_path(variable, env);
-			free(variable);
+			copy_ar0 = ar[0];
+			ar[0] = handle_path(line, env);
 			if (!ar[0])
 			{
-				_perror(argv[0], variable);
+				_perror(argv[0], copy_ar0);
 				_freearg(ar);
+				free(copy_ar0);
 				continue;
 			}
+			free(copy_ar0);
 		}
 		fork_child_parent(line, ar, env);
 	}

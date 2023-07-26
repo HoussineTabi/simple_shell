@@ -10,10 +10,11 @@
 int nb_of_words(char *str, const char *delim)
 {
 	int nb_of_word = 0;
-	char *strdu = _strdup(str), *token = NULL;
+	char *strdu = NULL, *token = NULL;
 
 	if (!str)
 		return (0);
+	strdu = _strdup(str);
 	token = strtok(strdu, delim);
 	while (token)
 	{
